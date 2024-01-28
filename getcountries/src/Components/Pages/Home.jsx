@@ -49,7 +49,7 @@ export default function Home() {
             <div>
                 <button disabled={page==1} onClick={() => setPage(page-1) } > Prev</button>
                 <button>{page}</button>
-                <button onClick={() => setPage(page+1) } >Next</button>
+                <button disabled={(countries.length) === 0} onClick={() => setPage(page+1) } >Next</button>
             </div>
         </div>
     )
