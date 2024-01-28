@@ -1,57 +1,54 @@
 import React, { useState } from 'react';
 
 export default function Authentication() {
-    const [signupData, setSignupData] = useState({ email: '', password: '' });
-    const [loginData, setLoginData] = useState({ email: '', password: '' });
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [signupData, setSignupData] = useState({ email: "", password: "" });
+    const [loginData, setLoginData] = useState({ email: "", password: "" });
+    const [isLogedIn, setIsLoggedIn] = useState(false)
 
     const handleSignup = () => {
-        setSignupData({ ...signupData }); // Update signupData, not loginData
-        alert('Signup successful! Please log in.');
-    };
+        setSignupData({ ...signupData })
+        alert("SignUp Sucessful")
+    }
 
     const handleLogin = () => {
-        if (loginData.email === signupData.email && loginData.password === signupData.password) {
-            alert('Login successful!');
-            setIsLoggedIn(true);
+
+        if (signupData.email === loginData.email && signupData.password === loginData.password) {
+            alert("Login sucessful")
+            setIsLoggedIn(true)
         } else {
-            alert('Invalid email or password. Please try again.');
+            alert("Invalid email or password. Please try again.")
         }
-    };
 
-    return (
+    }
+
+    return <div>
         <div>
-            <h2>Signup</h2>
-            <input
-                type="email"
-                placeholder="Email"
-                value={signupData.email}
-                onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
-            /> <br /><br />
-            <input
-                type="password"
-                placeholder="Password"
-                value={signupData.password}
-                onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
-            /> <br /><br />
-            <button onClick={handleSignup}>Sign Up</button>
+            <h1>SignUp</h1>
 
-            <h2>Login</h2>
-            <input
-                type="email"
-                placeholder="Email"
-                value={loginData.email}
-                onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
-            /><br /><br />
-            <input
-                type="password"
-                placeholder="Password"
-                value={loginData.password}
-                onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
-            /> <br /><br />
-            <button onClick={handleLogin}>Login</button>
+            <input value={signupData.email} onChange={(e) => setSignupData({ ...signupData, email: e.target.value })} type="email" placeholder='Enter email...' /> <br /> <br />
 
-            {isLoggedIn && <p>Welcome! You are now logged in.</p>}
+            <input value={signupData.password} onChange={(e) => setSignupData({ ...signupData, password: e.target.value })} type="password" placeholder='Enter password...' /><br /> <br />
+
+
+            <button onClick={handleSignup} > Submit</button>
         </div>
-    );
+
+        <div>
+            <h1>Login</h1>
+
+            <input type="email" placeholder='enter email ' value={loginData.email} onChange={(e) => setLoginData({ ...loginData, email: e.target.value })} /> <br /> <br />
+
+            <input value={loginData.password} onChange={(e) => setLoginData({ ...loginData, password: e.target.value })} type="password" placeholder='Enter password...' />;<br /> <br />
+
+
+            <button onClick={handleLogin} >Submit</button>
+        </div>
+        <div>
+            {isLogedIn && <p>Welcome! You are now logged in.</p>}
+        </div>
+
+    </div>
+
 }
+
+
