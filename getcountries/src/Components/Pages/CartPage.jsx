@@ -85,7 +85,7 @@ function CartPage() {
                         <p>Price: ${item.price * item.quantity}</p>
                         <button onClick={() => removeFromCart(item.id)}>Remove</button>
                     </div>
-                    
+
                 ))}
                 <h3>Total: ${total}</h3>
                 {!paymentInitiated && <button onClick={handlePaymentInitiation}>Proceed to Payment</button>}
@@ -127,7 +127,7 @@ function AddtoCart() {
                 }
                 return item;
             })
-            setCart(existingItem)
+            setCart(updatedCart)
         } else {
             setCart([...cart, { ...product, quantity: 1 }])
         }
@@ -155,7 +155,7 @@ function AddtoCart() {
                     <div key={item.id} >
                         <h3>{item.title}</h3>
                         <p>Quantity : {item.quantity}</p>
-                        <p>Price : Rs {item.price * item.quantity }</p>
+                        <p>Price : Rs {item.price * item.quantity}</p>
 
                     </div>
 
@@ -163,7 +163,51 @@ function AddtoCart() {
             </div>
         </div>
     )
+}
 
 
+function addtoCarat() {
+    const [product, setProduct] = useState([])
+    const [cart, setCart] = useState([])
+
+    useEffect(() => {
+        fetch("here is api")
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+                setProduct(data)
+            })
+    })
+
+    const addtoCarat = (product) => {
+        const existingItem = cart.find((item) => item.id === product.id)
+
+        if (existingItem) {
+            const updateCart = cart.map((item) => {
+                if (item.id === product.id) {
+                    return { ...item, quantity: item.quantity + 1 }
+                }
+            })
+            setCart(updateCart)
+        } else {
+            setCart([...cart, { ...product, quantity: 1 }])
+        }
+
+    }
+
+    return (
+        <div>
+            <div>
+                {product.map((item) => {
+                    <div>
+                        <h1>{item.id}</h1>
+                        <p>{item.title}</p>
+                        <p>{item.price}</p>
+                        <button onClick={() => addtoCarat(item)} >Add to cart</button>
+                    </div>
+                })}
+            </div>
+        </div>
+    )
 
 }
