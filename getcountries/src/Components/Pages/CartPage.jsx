@@ -85,6 +85,7 @@ function CartPage() {
                         <p>Price: ${item.price * item.quantity}</p>
                         <button onClick={() => removeFromCart(item.id)}>Remove</button>
                     </div>
+                    
                 ))}
                 <h3>Total: ${total}</h3>
                 {!paymentInitiated && <button onClick={handlePaymentInitiation}>Proceed to Payment</button>}
@@ -116,7 +117,23 @@ function AddtoCart() {
             })
     })
 
-  
+    const addToCart = (product) => {
+
+        const existingItem = cart.find((item) => item.id === product.id)
+        if (existingItem) {
+            const updatedCart = cart.map((item) => {
+                if (item.id === product.id) {
+                    return { ...item, quantity: item.quantity + 1 }
+                }
+                return item;
+            })
+            setCart(existingItem)
+        } else {
+            setCart([...cart, { ...product, quantity: 1 }])
+        }
+    }
+
+
 
     return (
         <div>
@@ -130,6 +147,18 @@ function AddtoCart() {
                             <button onClick={() => addToCart(product)} >Add to Cart</button>
                         </>
                     )
+                })}
+            </div>
+            <div>
+                <h2>Cart</h2>
+                {cart.map((item) => {
+                    <div key={item.id} >
+                        <h3>{item.title}</h3>
+                        <p>Quantity : {item.quantity}</p>
+                        <p>Price : Rs {item.price * item.quantity }</p>
+
+                    </div>
+
                 })}
             </div>
         </div>
