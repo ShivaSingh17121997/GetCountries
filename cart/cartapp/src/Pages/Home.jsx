@@ -16,14 +16,14 @@ export default function Home() {
             })
     }, [])
 
-    useEffect(()=>{
+    useEffect(() => {
         let totalCount = 0;
         cart.forEach((item) => {
             totalCount += item.price * item.quantity
         })
         setTotal(totalCount)
 
-    },[cart])
+    }, [cart])
 
     const addToCart = (product) => {
         const existingItem = cart.find((item) => item.id === product.id)
@@ -49,7 +49,7 @@ export default function Home() {
         setCart(removedData)
     }
 
-    
+
 
     return (
         <div>
@@ -73,7 +73,7 @@ export default function Home() {
                     {cart?.map((item) => {
                         return <>
                             <h1>{item.title}</h1>
-                            <p>{item.price*item.quantity}</p>
+                            <p>{item.price * item.quantity}</p>
                             <p>Quantity : {item.quantity}</p>
                             <button onClick={() => handleRemove(item.id)}  >Remove</button>
                         </>

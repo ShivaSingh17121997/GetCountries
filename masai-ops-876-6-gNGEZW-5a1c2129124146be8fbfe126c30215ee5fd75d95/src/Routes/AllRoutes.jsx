@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from "./Home"
 import Login from "./Login";
 import Item from "./SingleRestaurantPage"
+import CartPage from "./CartPage"
 
 function AllRoutes() {
   return (
@@ -20,6 +21,7 @@ function AllRoutes() {
         <Route
           path="/restaurants/:id" element={<PrivateRoute> <Item /> </PrivateRoute>} />
       </Routes>
+      <Routes path="./cart" element={<CartPage /> } ></Routes>
     </div>
   );
 }
