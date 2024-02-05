@@ -165,15 +165,82 @@ const students = [
 //Q-6
 // Constructor function Exampl
 
-function Person(name, age) {
-    this.name = name;
-    this.age = age
-}
+// function Person(name, age) {
+//     this.name = name;
+//     this.age = age
+// }
 
-Person.prototype.sayHello = function () {
-    console.log("Hello, my name is " + this.name + " " + " and I am " + this.age + " " + "year old")
-}
+// Person.prototype.sayHello = function () {
+//     console.log("Hello, my name is " + this.name + " " + " and I am " + this.age + " " + "year old")
+// }
 
-const Person1 = new Person("john", 22)
+// const Person1 = new Person("john", 22)
 
-console.log(Person1.sayHello())
+// console.log(Person1.sayHello())
+
+
+// // Closures
+
+// function Closures() {
+//     const outerVariable = "hi i am outer variable"
+
+//     function innerFun() {
+//         const innerVariable = "hi i am inner variable"
+//         return {outerVariable , innerVariable}
+//     }
+
+//     return innerFun
+
+// }
+
+// console.log(Closures()())
+
+////////////////////////////////////////////////////////
+
+// console.log(foo());
+// console.log(bar());
+
+// function foo() {
+//     return "Hello, I'm foo!";
+// }
+
+// var bar = function () {
+//     return "Hello, I'm bar!";
+// };
+
+
+//
+// var numbers = [1, 2, 3, 4, 5];
+
+// console.log(numbers.slice(1, 3));
+// console.log(numbers.splice(2, 2, 6, 7));
+// console.log(numbers);
+
+
+//
+// var str = 'Hello, World!';
+
+// console.log(str.toUpperCase());
+// console.log(str.split(','));
+// console.log(str.indexOf('World'));
+
+
+//
+// console.log(Boolean({})); 
+// console.log(Boolean([])); 
+
+
+//
+// function countdown(seconds) {
+//     if (seconds >= 0) {
+//         console.log(seconds);
+//         setTimeout(function() {
+//             countdown(seconds - 1);
+//         }, 1000);
+//     } else {
+//         console.log('Countdown complete');
+//     }
+// }
+
+// countdown(5);
+
