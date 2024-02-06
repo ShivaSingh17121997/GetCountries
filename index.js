@@ -84,19 +84,19 @@
 // }
 
 
-function Human(name,age){
-        this.name=name;
-        this.age = age;
-}
+// function Human(name,age){
+//         this.name=name;
+//         this.age = age;
+// }
 
-function User(isActice, username, name, age) {
-    this.isActice = isActice;
-    this.username = username;
-  let human1 =  Human.bind(this,[name, age])()
-  console.log(human1())
+// function User(isActice, username, name, age) {
+//     this.isActice = isActice;
+//     this.username = username;
+//   let human1 =  Human.bind(this,[name, age])()
+//   console.log(human1())
     
-}
+// }
 
-user1 = new User(true, 'bable@', "jokka", 25)
-console.log(user1)
+// user1 = new User(true, 'bable@', "jokka", 25)
+// console.log(user1)
 
