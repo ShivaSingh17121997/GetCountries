@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo app</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="todo-list">
+        <input id="create-task" type="text">
+
+        <button id="add-task">Add task</button>
+
+
+        <ul id="tasks">
+            <!-- List item will be added here -->
+        </ul>
+
+    </div>
+
+
+</body>
+<script>
+    let taskContainer = document.querySelector("#todo-list");
+    let btn = document.querySelector("#add-task"); // Corrected querySelector
+    taskContainer.addEventListener("click", (e) => {
+        const target = e.target; // Corrected target
+
+        if (target === btn) { // Check if the target is the button
+            var inputValue = document.querySelector("#create-task").value.trim();
+
+            if (inputValue !== "") {
+                addTaskTodoList(inputValue);
+                var inputValue = document.querySelector("#create-task").value = " "
+            }
+        }
+
+        // Task item clicked
+        if (target.tagName === "li"){
+            target.classList.toggle("completed")
+        }
+    });
+
+    function addTaskTodoList(inputValue) {
+        let taskList = document.querySelector("#tasks");
+        let liItem = document.createElement("li");
+
+        liItem.textContent = inputValue;
+        taskList.appendChild(liItem);
+    }
+</script>
+
+</html>

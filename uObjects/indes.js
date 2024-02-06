@@ -234,7 +234,7 @@ const students = [
 // function countdown(seconds) {
 //     if (seconds >= 0) {
 //         console.log(seconds);
-//         setTimeout(function() {
+//         setTimeout(function () {
 //             countdown(seconds - 1);
 //         }, 1000);
 //     } else {
@@ -242,5 +242,37 @@ const students = [
 //     }
 // }
 
-// countdown(5);
+// countdown(5);  //
 
+
+
+//
+// //
+// var animation = ['-', '\\', '|', '/'];
+// var index = 0;
+
+// var animationInterval = setInterval(function () {
+//     process.stdout.write('\r' + animation[index++ % animation.length]);
+// }, 100);
+
+// setTimeout(function () {
+//     clearInterval(animationInterval);
+//     console.log('\nAnimation stopped');
+// }, 10000);
+
+
+// function foo() {
+//     console.log("Hello") //return undefined
+// }
+
+// const result = foo()
+// console.log(result)
+
+//
+
+// var a = 1; // global var
+// function foo() {
+//     console.log(a);
+//     //var a = 2;
+// }
+// foo(); // 1
