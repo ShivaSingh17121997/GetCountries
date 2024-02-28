@@ -1,52 +1,55 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+const express = require('express')
+const fs = require('fs')
 
 const app = express();
+//middleware
+app.use(express.json())
 
-// Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/mydatabase", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
 
-// Define Schema and model for the database
-const todoSchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    completed: Boolean
-});
+app.get("/", (req, res) => {
+    res.send('Home page')
+})
 
-const Todo = mongoose.model('Todo', todoSchema);
+// Create
 
-// Middleware
-app.use(bodyParser.json());
+app.post('/add/user', (req, res) => {
 
-// Routes
-app.get('/todos', async (req, res) => {
-    try {
-        const todos = await Todo.find();
-        res.json(todos);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-});
+    let data = JSON.parse(fs.readFileSync("./db.json", 'utf-8'));
+    res.send('work in pregress')
+    //2 add the data into users array
+    data.users.push(req.body)
+    console.log(data);
 
-app.post('/todos', async (req, res) => {
-    const todo = new Todo({
-        title: req.body.title,
-        description: req.body.description,
-        completed: req.body.completed || false
-    });
+    //write the data in json
+    fs.writeFileSync('./db.json', JSON.stringify(data));
+    res.send('new user has been added')
 
-    try {
-        const newTodo = await todo.save();
-        res.status(201).json(newTodo);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-});
+})
+
+app.post('/add/blog', (req, res) => {
+    let data = JSON.parse(fs.readFileSync('./db.json', 'utf-8'));
+    console.log(data)
+    //2 add blog
+    data.blogs.push(req.body)
+    console.log(data)
+    fs.writeFileSync('./db.json', JSON.stringify(data))
+    res.send("new blog is added")
+})
+
+
+//READ
+
+app.get('/users', (req, res) => {
+    let data = JSON.parse(fs.readFileSync('./db.json', 'utf-8'))
+    res.send(data.users)
+
+})
+
+
+
+
+
 
 app.listen(8080, () => {
-    console.log('Server is running on port 8080');
-});
+    console.log('server is running at port 8080')
+})

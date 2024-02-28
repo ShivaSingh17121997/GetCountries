@@ -1,0 +1,38 @@
+{
+    "users": [
+        {
+            "name": "Aman",
+            "age": 14
+        },
+        {
+            "name": "babalu",
+            "age": 22
+        },
+        {
+            "name": "ram",
+            "age": 22
+        }
+    ],
+    "blogs": [
+        {
+            "title": "Learn React",
+            "body": "Learning react for the first time"
+        },
+        {
+            "title": "new blog",
+            "body": "f...................."
+        },
+        {
+            "title": "new blog",
+            "body": "f...................."
+        },
+        {
+            "title": "new blog",
+            "body": "f................"
+        },
+        {
+            "title": "new blog",
+            "body": "f................"
+        }
+    ]
+}
