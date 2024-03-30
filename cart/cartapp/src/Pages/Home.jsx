@@ -6,6 +6,7 @@ export default function Home() {
     const [product, setProduct] = useState([])
     const [cart, setCart] = useState([])
     const [total, setTotal] = useState(0)
+    
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
