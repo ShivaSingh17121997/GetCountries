@@ -7,6 +7,7 @@ import Routing from './Components/Routes/Routing';
 import Authentication from './Components/Pages/Authentication';
 import Login from './Components/Pages/Login';
 import CartPage from './Components/Pages/CartPage';
+import Counter from './Components/Pages/Counter';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       <Routing/> */}
       {/* <Authentication/> */}
       {/* <Login/> */}
-      <CartPage/>
+      {/* <CartPage/> */}
+      <Counter/>
     </div>
   );
 }
