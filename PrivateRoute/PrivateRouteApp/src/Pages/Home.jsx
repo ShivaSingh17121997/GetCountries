@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContexts } from '../AuthContext/ThemeContext'
 
 export default function Home() {
+    const {Theme, toggletheme} = useContext(ThemeContexts);
   return (
-    <div>Home</div>
+    <div style={{height:"100vh" , backgroundColor:Theme?"white":"black"}} >
+        <div>
+            <button onClick={toggletheme} >{Theme?"Dark Mode": "Light Mode"}</button>
+        </div>
+    </div>
   )
 }
